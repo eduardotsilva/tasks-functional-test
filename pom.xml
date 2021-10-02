@@ -15,6 +15,26 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
+
+  <!--
+    Plugin Surefire para executar Selenium grid node em paralelo
+    Executar pelo maven pra funcionar mvn test
+  -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20</version>
+        <configuration>
+          <parallel>all</parallel>
+          <!-- Indica uso de thread ilimitadas... quantas o PC permitir -->
+          <useUnlimitedThreads>true</useUnlimitedThreads>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
